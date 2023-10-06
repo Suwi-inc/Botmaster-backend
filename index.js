@@ -59,17 +59,6 @@ bot.onText(/\/view/, async (msg) => {
   });
   
 
-bot.onText(/\/last/, async (msg) => {
-  const chatId = msg.chat.id;
-
-  if (messages.length === 0) {
-    bot.sendMessage(chatId, 'No tasks available.');
-  } else {
-    const lastMessage = messages[messages.length - 1];
-    bot.sendMessage(chatId, 'Sorry Devs are too lazy to implement this yet :(');
-  }
-});
-
 bot.on('message', async (msg) => {
     const chatId = msg.chat.id;
     const text = msg.text;
@@ -94,7 +83,7 @@ bot.on('message', async (msg) => {
           console.error('Error posting data to API:', error);
         });
   
-      messages.push(text);
+    
     }
   });
   
