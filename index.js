@@ -12,7 +12,6 @@ const bot = new TelegramBot(token, {polling: true});
 
 
 bot.onText(/\/start/, async (msg) => {
-    
     const chatId = msg.chat.id;
     const userid = msg.from.id;
     const userName = msg.from.first_name + (msg.from.last_name ? ' ' + msg.from.last_name : '');
