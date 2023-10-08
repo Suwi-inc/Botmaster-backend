@@ -1,4 +1,5 @@
 const TelegramBot = require('node-telegram-bot-api');
+const express = require('express');
 const axios = require('axios');
 require("dotenv").config();
 
@@ -6,9 +7,21 @@ const usersUrl = process.env.USERURL;
 const tasksUrl = process.env.TASKURl;
 const token = process.env.BOTTOKEN;
 const taskstelgramUrl = process.env.TASKTELGRAMURL;
+const port = process.env.PORT;
 
 
 const bot = new TelegramBot(token, {polling: true});
+
+
+const app = express();
+app.get('/',(req,res)=> 
+{
+  res.send('msg2task bot running');
+}
+);
+app.listen(port, () => {
+  console.log('server is running');
+});
 
 
 bot.onText(/\/start/, async (msg) => {
